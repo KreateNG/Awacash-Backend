@@ -1,0 +1,190 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="ErrorOr" Version="1.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Authentication\Behaviors\" />
+    <Folder Include="Beneficiaries\Handler\Commands\" />
+    <Folder Include="BillPayment\DTOs\" />
+    <Folder Include="CardRequests\Handler\Queries\" />
+    <Folder Include="DisputeLogs\Handler\Queries\" />
+    <Folder Include="FeeConfigurations\Handler\Commands\" />
+    <Folder Include="SavingsConfiguration\FilterModels\" />
+    <Folder Include="Savings\FilterModels\" />
+    <Folder Include="Savings\Specifications\" />
+    <Folder Include="Users\DTOs\" />
+    <Folder Include="Wema\Handler\Commands\" />
+    <Folder Include="SmsTemplateConfigurations\Services\" />
+    <Folder Include="SmsTemplateConfigurations\Handler\" />
+    <Folder Include="SmsTemplateConfigurations\Handler\Commands\" />
+    <Folder Include="SmsTemplateConfigurations\Handler\Queries\" />
+    <Folder Include="SmsTemplateConfigurations\DTOs\" />
+    <Folder Include="SmsTemplateConfigurations\Handler\Commands\CreateSmsTemplate\" />
+    <Folder Include="SmsTemplateConfigurations\Handler\Commands\UpdateSmsTemplate\" />
+    <Folder Include="SmsTemplateConfigurations\Handler\Queries\GetSmsTemplateById\" />
+    <Folder Include="EmailTemplateConfigurations\" />
+    <Folder Include="Authentication\Handler\Commands\AdminForgotPassword\" />
+    <Folder Include="Authentication\Handler\Commands\ResetAdminPassword\" />
+    <Folder Include="Users\Handler\Commands\ChangeUserPassword\" />
+    <Folder Include="Role\Handler\Queries\GetPermissions\" />
+    <Folder Include="Transactions\Handlers\Queries\TransactionStatus\" />
+    <Folder Include="BillPayment\Handler\Commands\AirTimePurchase\" />
+    <Folder Include="Transactions\Handlers\Queries\GetTotalSystemBalance\" />
+    <Folder Include="FeeConfigurations\Handler\Queries\GetAllFee\" />
+    <Folder Include="FeeConfigurations\Handler\Queries\GetFeeById\" />
+    <Folder Include="FeeConfigurations\DTOs\" />
+    <Folder Include="FeeConfigurations\Handler\Commands\CreateFeeConfiguration\" />
+    <Folder Include="Wallets\" />
+    <Folder Include="Wallets\Handler\" />
+    <Folder Include="Wallets\Services\" />
+    <Folder Include="Wallets\DTOs\" />
+    <Folder Include="Wallets\Specifications\" />
+    <Folder Include="Wallets\FilterModels\" />
+    <Folder Include="Wallets\Handler\Commands\" />
+    <Folder Include="Wallets\Handler\Queries\" />
+    <Folder Include="Wallets\Handler\Queries\GetAllWallets\" />
+    <Folder Include="Wallets\Handler\Queries\GetPaginatedWallet\" />
+    <Folder Include="Wallets\Handler\Queries\GetWalletById\" />
+    <Folder Include="Wallets\Handler\Commands\UpdateWalletStatus\" />
+    <Folder Include="AuditLogs\" />
+    <Folder Include="AuditLogs\Handler\" />
+    <Folder Include="AuditLogs\Services\" />
+    <Folder Include="AuditLogs\DTOs\" />
+    <Folder Include="AuditLogs\Handler\Queries\" />
+    <Folder Include="AuditLogs\Handler\Queries\GetPagedAuditLog\" />
+    <Folder Include="AuditLogs\Handler\Queries\GetAuditLogById\" />
+    <Folder Include="AuditLogs\FilterModels\" />
+    <Folder Include="AuditLogs\Specifications\" />
+    <Folder Include="DashBoard\" />
+    <Folder Include="DashBoard\Handler\" />
+    <Folder Include="DashBoard\Handler\Queries\" />
+    <Folder Include="DashBoard\Services\" />
+    <Folder Include="DashBoard\DTOs\" />
+    <Folder Include="CardRequests\Specifications\" />
+    <Folder Include="CardRequests\FilterModels\" />
+    <Folder Include="CardRequests\Handler\Queries\GetById\" />
+    <Folder Include="CardRequests\Handler\Queries\GetAll\" />
+    <Folder Include="CardRequests\Handler\Queries\GetPagedList\" />
+    <Folder Include="Role\Handler\Commands\DeleteRole\" />
+    <Folder Include="Customers\Handler\Commands\UpdateCustomerNextOfKin\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Documents\Handler\" />
+    <Folder Include="Documents\Services\" />
+    <Folder Include="Documents\DTOs\" />
+    <Folder Include="Documents\Handler\Commands\" />
+    <Folder Include="Documents\Handler\Commands\AddDocument\" />
+    <Folder Include="Authentication\Handler\Commands\RegisterAccount\" />
+    <Folder Include="Authentication\Handler\Commands\ValidateAccount\" />
+    <Folder Include="Authentication\Handler\Commands\SendAccountVerificationCode\" />
+    <Folder Include="Customers\Handler\Queries\GetAllAccounts\" />
+    <Folder Include="Transfers\Handlers\Commands\OwnAccountTransfer\" />
+    <Folder Include="Customers\Handler\Queries\GetStatement\" />
+    <Folder Include="Authentication\Handler\Commands\RefreshToken\" />
+    <Folder Include="Transactions\Handlers\Queries\GetCoreTransaction\" />
+    <Folder Include="Customers\Handler\Commands\UpdateProfile\" />
+    <Folder Include="Customers\Handler\Queries\GetAllReferrals\" />
+    <Folder Include="Loans\" />
+    <Folder Include="Loans\Handler\" />
+    <Folder Include="Loans\Handler\Commands\" />
+    <Folder Include="Loans\Handler\Queries\" />
+    <Folder Include="Loans\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="SmsConfigurations\Services\" />
+    <None Remove="SmsConfigurations\Handler\" />
+    <None Remove="SmsConfigurations\Handler\Commands\" />
+    <None Remove="SmsConfigurations\Handler\Queries\" />
+    <None Remove="SmsConfigurations\DTOs\" />
+    <None Remove="SmsTemplateConfigurations\Handler\Commands\CreateSmsTemplate\" />
+    <None Remove="SmsTemplateConfigurations\Handler\Commands\UpdateSmsTemplate\" />
+    <None Remove="SmsTemplateConfigurations\Handler\Queries\GetSmsTemplateById\" />
+    <None Remove="EmailTemplateConfigurations\" />
+    <None Remove="Authentication\Handler\Commands\AdminForgotPassword\" />
+    <None Remove="Authentication\Handler\Commands\ResetAdminPassword\" />
+    <None Remove="Users\Handler\Commands\ChangeUserPassword\" />
+    <None Remove="Role\Handler\Queries\GetPermissions\" />
+    <None Remove="Transactions\Handlers\Queries\TransactionStatus\" />
+    <None Remove="BillPayment\Handler\Commands\AirTimePurchase\" />
+    <None Remove="Transactions\Handlers\Queries\GetTotalSystemBalance\" />
+    <None Remove="FeeConfigurations\Handler\Queries\GetAllFee\" />
+    <None Remove="FeeConfigurations\Handler\Queries\GetFeeById\" />
+    <None Remove="FeeConfigurations\DTOs\" />
+    <None Remove="FeeConfigurations\Handler\Commands\CreateFeeConfiguration\" />
+    <None Remove="Wallets\" />
+    <None Remove="Wallets\Handler\" />
+    <None Remove="Wallets\Services\" />
+    <None Remove="Wallets\DTOs\" />
+    <None Remove="Wallets\Specifications\" />
+    <None Remove="Wallets\FilterModels\" />
+    <None Remove="Wallets\Handler\Commands\" />
+    <None Remove="Wallets\Handler\Queries\" />
+    <None Remove="Wallets\Handler\Queries\GetAllWallets\" />
+    <None Remove="Wallets\Handler\Queries\GetPaginatedWallet\" />
+    <None Remove="Wallets\Handler\Queries\GetWalletById\" />
+    <None Remove="Wallets\Handler\Commands\UpdateWalletStatus\" />
+    <None Remove="AuditLogs\" />
+    <None Remove="AuditLogs\Handler\" />
+    <None Remove="AuditLogs\Services\" />
+    <None Remove="AuditLogs\DTOs\" />
+    <None Remove="AuditLogs\Handler\Queries\" />
+    <None Remove="AuditLogs\Handler\Queries\GetPagedAuditLog\" />
+    <None Remove="AuditLogs\Handler\Queries\GetAuditLogById\" />
+    <None Remove="AuditLogs\FilterModels\" />
+    <None Remove="AuditLogs\Specifications\" />
+    <None Remove="DashBoard\" />
+    <None Remove="DashBoard\Handler\" />
+    <None Remove="DashBoard\Handler\Queries\" />
+    <None Remove="DashBoard\Services\" />
+    <None Remove="DashBoard\DTOs\" />
+    <None Remove="CardRequests\Specifications\" />
+    <None Remove="CardRequests\FilterModels\" />
+    <None Remove="CardRequests\Handler\Queries\GetById\" />
+    <None Remove="CardRequests\Handler\Queries\GetAll\" />
+    <None Remove="CardRequests\Handler\Queries\GetPagedList\" />
+    <None Remove="Role\Handler\Commands\DeleteRole\" />
+    <None Remove="Customers\Handler\Commands\UpdateCustomerNextOfKin\" />
+    <None Remove="Documents\" />
+    <None Remove="Documents\Handler\" />
+    <None Remove="Documents\Services\" />
+    <None Remove="Documents\DTOs\" />
+    <None Remove="Documents\Handler\Commands\" />
+    <None Remove="Documents\Handler\Commands\AddDocument\" />
+    <None Remove="Authentication\Handler\Commands\RegisterAccount\" />
+    <None Remove="Authentication\Handler\Commands\ValidateAccount\" />
+    <None Remove="Authentication\Handler\Commands\SendAccountVerificationCode\" />
+    <None Remove="Customers\Handler\Queries\GetAllAccounts\" />
+    <None Remove="Transfers\Handlers\Commands\OwnAccountTransfer\" />
+    <None Remove="Customers\Handler\Queries\GetStatement\" />
+    <None Remove="Authentication\Handler\Commands\RefreshToken\" />
+    <None Remove="Transactions\Handlers\Queries\GetCoreTransaction\" />
+    <None Remove="Customers\Handler\Commands\UpdateProfile\" />
+    <None Remove="Customers\Handler\Queries\GetAllReferrals\" />
+    <None Remove="Loans\" />
+    <None Remove="Loans\Handler\" />
+    <None Remove="Loans\Handler\Commands\" />
+    <None Remove="Loans\Handler\Queries\" />
+    <None Remove="Loans\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Awacash.Domain\Awacash.Domain.csproj" />
+  </ItemGroup>
+</Project>

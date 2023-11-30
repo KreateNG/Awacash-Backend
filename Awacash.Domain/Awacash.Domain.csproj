@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Common\Constants\" />
+    <Folder Include="Extentions\" />
+    <Folder Include="Models\EasyPay\" />
+    <Folder Include="Models\BankOneAccount\" />
+    <Folder Include="Models\Loan\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ErrorOr" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Helpers\" />
+    <None Remove="Common\Constants\" />
+    <None Remove="Extentions\" />
+    <None Remove="Models\EasyPay\" />
+    <None Remove="Models\BankOneAccount\" />
+    <None Remove="Models\Loan\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Awacash.Shared\Awacash.Shared.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SmsConfigurations\" />
+    <None Remove="EmailConfigurations\" />
+    <None Remove="FeeConfigurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SmsConfigurations\" />
+    <Folder Include="EmailConfigurations\" />
+    <Folder Include="FeeConfigurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Awacash.Domain\Awacash.Domain.csproj" />
+  </ItemGroup>
+</Project>

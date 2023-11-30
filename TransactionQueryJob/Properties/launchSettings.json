@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TransactionQueryJob": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

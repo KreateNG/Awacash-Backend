@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Awacash.SavingsJob": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    }
+  }
+}
