@@ -470,7 +470,7 @@ public class AuthService : IAuthService
 
         var msge = $"Please use {otp.Data.Code} to complete your transaction";
         _BerachahThirdPartyService.SendSms(response.Data.PhoneNumber, msge, _appSettings.SmsAccountNumber, _appSettings.SmsAccountId);
-        _BerachahThirdPartyService.SendEmail(response.Data.PhoneNumber, "OTP", msge);
+        _BerachahThirdPartyService.SendEmail(response.Data.Email, "OTP", msge);
 
         var fullname = response.Data.Name.Split(' ');
         return ResponseModel<AccountValidationResponse>.Success(new AccountValidationResponse(response.Data.CustomerID, fullname[0], fullname[1], otpHash));

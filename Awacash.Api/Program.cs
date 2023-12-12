@@ -54,7 +54,7 @@ var app = builder.Build();
 //    app.UseSwaggerUI();
 //}
 
-
+//app.UseMiddleware<RateLimitMiddleware>( 1);
 app.UseInfrastructure(builder.Configuration);
 //app.UseCors("corsapp");
 //app.UseExceptionHandler("/error");

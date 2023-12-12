@@ -98,31 +98,44 @@ namespace Awacash.Application.Customers.Services
 
         public async Task<ResponseModel<bool>> ChangePin(string oldPin, string newPin)
         {
-            var userId = _currentUser.GetCustomerId();
-            var customer = await _unitOfWork.CustomerRepository.GetByAsync(x => x.Id == userId && x.IsDeleted == false);
-            if (customer is null)
+            try
             {
-                return ResponseModel<bool>.Failure("Customer not found");
-            }
+                var userId = _currentUser.GetCustomerId();
+                var customer = await _unitOfWork.CustomerRepository.GetByAsync(x => x.Id == userId && x.IsDeleted == false);
+                if (customer is null)
+                {
+                    return ResponseModel<bool>.Failure("Customer not found");
+                }
 
-            if (_cryptoService.ComputeSaltedHash(customer.PinSalt.Value, oldPin) != customer.SaltedHashedPin)
-            {
-                customer.PinTries = customer.PinTries++;
+                if (customer.IsForgotPinChangeEnabled == false) //when this is true it means the customer can't remember the old pin so the validation is skipped
+                {
+                    if (_cryptoService.ComputeSaltedHash(customer.PinSalt.Value, oldPin) != customer.SaltedHashedPin)
+                    {
+                        customer.PinTries = customer.PinTries++;
+                        customer.ModifiedBy = "self";
+                        customer.ModifiedDate = _dateTimeProvider.UtcNow;
+                        _unitOfWork.CustomerRepository.Update(customer);
+                        await _unitOfWork.Complete();
+                        return ResponseModel<bool>.Failure("Invalid pin you 5 more tries");
+                    }
+                }
+
+                var saltedPin = _cryptoService.ComputeSaltedHash(customer.PinSalt.Value, newPin);
+                customer.PinTries = 0;
+                customer.SaltedHashedPin = saltedPin;
                 customer.ModifiedBy = "self";
                 customer.ModifiedDate = _dateTimeProvider.UtcNow;
+                customer.IsForgotPinChangeEnabled = false;
                 _unitOfWork.CustomerRepository.Update(customer);
                 await _unitOfWork.Complete();
-                return ResponseModel<bool>.Failure("Invalid pin you 5 more tries");
+                return ResponseModel<bool>.Success(true, "You have successfully changed your pin");
             }
+            catch (Exception ex)
+            {
 
-            var saltedPin = _cryptoService.ComputeSaltedHash(customer.PinSalt.Value, newPin);
-            customer.PinTries = 0;
-            customer.SaltedHashedPin = saltedPin;
-            customer.ModifiedBy = "self";
-            customer.ModifiedDate = _dateTimeProvider.UtcNow;
-            _unitOfWork.CustomerRepository.Update(customer);
-            await _unitOfWork.Complete();
-            return ResponseModel<bool>.Success(true, "You have successfully changed your pin");
+                _logger.LogCritical(ex.Message);
+                return ResponseModel<bool>.Failure("An error has ocure, please try again later");
+            }
 
         }
 

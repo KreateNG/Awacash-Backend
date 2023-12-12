@@ -57,11 +57,11 @@ namespace Awacash.Domain.Entities
         public DateTime RefreshTokenExpiryTime { get; set; }
 
         public string? ReferralCode { get; set; }
-
+        public bool IsForgotPinChangeEnabled { get; set; }
         public virtual Wallet? Wallet { get; set; }
         //public virtual List<Document>? Documents { get; set; } = new List<Document>();
         public virtual List<Referral>? Referrals { get; set; } = new List<Referral>();
-
+        
         public string FullName
         {
             get

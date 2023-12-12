@@ -35,6 +35,7 @@ namespace Awacash.Application.Common.Model
         public string? Bvn { get; set; }
         public string? ReferralCode { get; set; }
         public bool IsIdUploaded { get; set; }
+        public bool IsForgotPinChangeEnabled { get; set; }
 
     }
 }
